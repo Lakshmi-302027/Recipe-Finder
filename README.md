@@ -21,7 +21,7 @@ No external frameworks or libraries used – pure vanilla implementation.
 
 ## File Structure
 
-
+```
 Recipe-Finder-Book/
 ├── index.html          # Main application file (all-in-one HTML/CSS/JS)
 ├── images/             # Recipe images folder
@@ -37,7 +37,7 @@ Recipe-Finder-Book/
 │   ├── Grilled cheese.jpg
 │   └── Lava cake.jpg
 └── README.md           # This file
-
+```
 
 ## Setup & Usage
 
