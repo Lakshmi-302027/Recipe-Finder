@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Recipe Book</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>🍳 Recipe Finder Book</h1>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="home">🏠 Home</button>
+      <button class="tab-btn" data-tab="add">➕ Add / Edit Recipe</button>
+      <button class="tab-btn" data-tab="list">🔍 All Recipes</button>
+    </div>
+    <div class="hero">
+      <h1>Welcome to Recipe Heaven!</h1>
+      <p>"When you acknowledge... That there is no such thing as perfect food, only the idea of it, <br>then the real purpose of striving toward perfection becomes clear: to make people happy, that is what cooking is all about." </p>
+    </div>
+
+    <!-- HOME -->
+    <section class="tab-content active" id="home">
+      <div class="section-title">Recipes</div>
+      <p class="muted">Scroll to see different recipes.</p>
+
+      <div class="recipes-grid" id="home-sample"></div>
+
+      <div class="section-title" style="margin-top:14px;">Your Latest Recipes</div>
+      <div class="recipes-grid" id="home-user"></div>
+      <p class="muted" id="home-user-empty" style="display:none;">
+        No recipes added yet. Use the "Add / Edit Recipe" tab.
+      </p>
+    </section>
+
+    <!-- ADD / EDIT -->
+    <section class="tab-content" id="add">
+      <h2 style="margin-bottom:8px;">Add / Edit Recipe</h2>
+      <form id="recipe-form">
+        <input type="hidden" id="recipe-id" />
+
+        <div class="form-group">
+          <label for="recipe-name">Recipe name *</label>
+          <input type="text" id="recipe-name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="recipe-ingredients">Ingredients * (one per line)</label>
+          <textarea id="recipe-ingredients" required placeholder="2 cups flour&#10;1 tsp salt"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="recipe-steps">Preparation steps * (one per line)</label>
+          <textarea id="recipe-steps" required placeholder="Mix ingredients&#10;Bake for 20 minutes"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="recipe-image">Dish image (optional)</label>
+          <input type="file" id="recipe-image" accept="image/*" />
+          <small class="muted" style="display:block;text-align:left;">
+            If you don't choose an image, a placeholder will be used.
+          </small>
+        </div>
+
+        <div style="margin-top:10px;">
+          <button type="submit" class="btn" id="submit-btn">Add Recipe</button>
+          <button type="button" class="btn btn-secondary" id="clear-btn">Clear Form</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- LIST / SEARCH -->
+    <section class="tab-content" id="list">
+      <div class="search-row">
+        <input type="text" id="search-input" placeholder="Search your saved recipes by name or ingredient..." />
+        <button class="btn btn-secondary" id="clear-search">Clear</button>
+      </div>
+      <div class="recipes-grid" id="all-recipes"></div>
+      <p class="muted" id="no-recipes-msg" style="display:none;">
+        No recipes found. Try another keyword or add a new recipe.
+      </p>
+    </section>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div class="modal-backdrop" id="detail-modal">
+    <div class="modal">
+      <img id="detail-img" src="" alt="Recipe image" />
+      <h2 id="detail-title"></h2>
+
+      <div>
+        <div class="modal-section-title">Ingredients</div>
+        <ul id="detail-ingredients"></ul>
+      </div>
+
+      <div>
+        <div class="modal-section-title">Steps</div>
+        <ol id="detail-steps"></ol>
+      </div>
+
+      <div style="margin-top:10px;text-align:right;">
+        <button class="btn btn-secondary btn-small" id="modal-close">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
