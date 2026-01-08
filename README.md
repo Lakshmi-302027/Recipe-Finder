@@ -51,3 +51,6 @@ Recipe-Finder-Book/
 - Add your own via Add/Edit tab (fields auto-validate).
 - Search and manage in All Recipes tab.
 - Click any card to open detailed modal view.
+
+## live demo
+- live at : https://lakshmi-302027.github.io/Recipe-Finder/
